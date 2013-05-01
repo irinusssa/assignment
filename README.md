@@ -4,7 +4,7 @@ assignment
 My Adobe Assignment
 -------------------
 
-The application is based on *NanoHttpd*, a light-weight HTTP server. It extends the sample `SimpleWebServer` which in turn extends the abstract class `NanoHTTPD`
+The application is based on **NanoHttpd**, a light-weight HTTP server. It extends the sample `SimpleWebServer` which in turn extends the abstract class `NanoHTTPD`.
 
 3 modifications were made to the original implementation in order to comply to the assignment:
 - in the original implementation, the web server provided a default `AsyncRunner` for the threads serving the requests and this default was creating a new `Thread` for each request. In this new implementation of the `AsyncRunner` interface, `ThreadPoolAsyncRunner`, I use a thread pool with a configurable number of threads, by the command line argument `-t` (defaults to 10).
@@ -23,3 +23,12 @@ Use this command line to build the application
 Use this command line to execute the application
 
 	java -jar target/AssignmentAdobeA-0.0.1-SNAPSHOT-jar-with-dependencies.jar
+
+The allowed command line parameters are
+
+	-h	host, defaults to localhost
+	-p	port, defaults to 8080
+	-d	root directory, defaults to src/webapp
+	-t	max threads number, defaults to 10
+	
+The test page *many.htm* is an exemple of concurrent requests, using `iframe`s.
