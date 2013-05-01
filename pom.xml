@@ -18,6 +18,7 @@
 		</dependency>
 	</dependencies>
 	<build>
+		<finalName>adobe-assignment</finalName>
 		<plugins>
 			<plugin>
 				<artifactId>maven-assembly-plugin</artifactId>

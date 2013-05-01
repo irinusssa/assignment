@@ -1,7 +1,7 @@
-assignment
+My Adobe Assignment
 ==========
 
-My Adobe Assignment
+Assignment A
 -------------------
 
 The application is based on **NanoHttpd**, a light-weight HTTP server. It extends the sample `SimpleWebServer` which in turn extends the abstract class `NanoHTTPD`.
@@ -22,7 +22,7 @@ Use this command line to build the application
 
 Use this command line to execute the application
 
-	java -jar target/AssignmentAdobeA-0.0.1-SNAPSHOT-jar-with-dependencies.jar
+	java -jar target/adobe-assignment-jar-with-dependencies.jar
 
 The allowed command line parameters are
 
