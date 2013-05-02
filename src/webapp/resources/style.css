@@ -1,28 +1,22 @@
+.draggable {
+	background-color: blue;
+	padding: 0.5em;
+	float: left;
+	margin: 10px 10px 10px 0;
+}
+
+.droppable {
+	background-color: red;
+	width: 500px;
+	height: 400px;
+}
+
 body {
-    padding-left: 11em;
-    font-family: Georgia, "Times New Roman",
-          Times, serif;
-    color: purple;
-    background-color: #d8da3d }
-  ul.navbar {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    position: absolute;
-    top: 2em;
-    left: 1em;
-    width: 9em }
-  h1 {
-    font-family: Helvetica, Geneva, Arial,
-          SunSans-Regular, sans-serif }
-  ul.navbar li {
-    background: white;
-    margin: 0.5em 0;
-    padding: 0.3em;
-    border-right: 1em solid black }
-  ul.navbar a {
-    text-decoration: none }
-  a:link {
-    color: blue }
-  a:visited {
-    color: purple }
+	overflow: hidden;
+}
+
+#frame {
+	height: 500px;
+	width: 40%;
+	left: 400px;
+}
