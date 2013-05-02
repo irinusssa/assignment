@@ -20,6 +20,8 @@ Use this command line to build the application
 
 	mvn clean compile assembly:single
 
+I've also included a *repository* folder together with the sources, which contains the dependency jars of the **NanoHttpd** project.
+
 Use this command line to execute the application
 
 	java -jar target/adobe-assignment-jar-with-dependencies.jar
