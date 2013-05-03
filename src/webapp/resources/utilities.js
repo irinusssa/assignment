@@ -1,6 +1,10 @@
 $(window)
 		.load(
 				function() {
+					/* prevent default click handle */
+					$('input[type=button]').draggable({cancel:false});
+					$('textarea').draggable({cancel:false});
+					/* ---- */
 					$('.draggable').draggable({
 						'revert' : 'invalid'
 					});
@@ -15,13 +19,14 @@ $(window)
 															'resources/assignmentAdobeB_response.txt',
 															function(data) {
 																alert('DOM with tag '
-																		+ event.target.tagName
+																		+ event.originalEvent.target.tagName
 																		+ ' was dropped. Response was : '
 																		+ data);
 															});
 										}
 									});
 
+					/* fix small bug for iFrames, reference http://stackoverflow.com/questions/6817758/drag-and-drop-elements-into-an-iframe-droppable-area-has-wrong-coordinates-and */
 					jQuery.ui.ddmanager.prepareOffsets = function(t, event) {
 
 						var m = $.ui.ddmanager.droppables[t.options.scope]
@@ -46,9 +51,6 @@ $(window)
 							m[i].visible = m[i].element.css("display") != "none";
 							if (!m[i].visible)
 								continue;
-
-							if (type == "mousedown")
-								m[i]._activate.call(m[i], event);
 
 							m[i].offset = m[i].element.offset();
 

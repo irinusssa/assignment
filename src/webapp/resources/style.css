@@ -5,6 +5,13 @@
 	margin: 10px 10px 10px 0;
 }
 
+.notDraggable {
+	background-color: green;
+	padding: 0.5em;
+	float: right;
+	margin: 10px 10px 10px 0;
+}
+
 .droppable {
 	background-color: red;
 	width: 500px;
@@ -13,6 +20,11 @@
 
 body {
 	overflow: hidden;
+}
+
+table {
+	float: left;
+	width: 350px;
 }
 
 #frame {

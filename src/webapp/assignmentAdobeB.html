@@ -3,23 +3,47 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<title>jQuery UI Droppable - Default functionality</title>
-<link rel="stylesheet"
-	href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" />
+<title>Drag & Drop</title>
 <link rel="stylesheet" href="resources/style.css" />
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
 <script src="resources/utilities.js"></script>
 </head>
 <body>
+	<table>
+		<tr>
+			<td>
+				<div class="draggable">
+					<p>I'm attracted to RED</p>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<textarea class="draggable" rows="2" cols="20">
+					I'm attracted to RED
+				</textarea>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<input type="button" class="draggable" value="I'm attracted to RED" />
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<table class="draggable">
+					<tr>
+						<td><p>I'm attracted to RED</p></td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
 
-	<div class="draggable">
-		<p>I'm attracted to RED</p>
+	<div class="notDraggable">
+		<p>I'm NOT attracted to RED</p>
 	</div>
-	<textarea class="draggable" rows="2" cols="2">
-		I'm attracted to RED
-	</textarea>
-	<button class="draggable">I'm attracted to RED</button>
 
 	<iFrame id="frame" src="destination.html"> </iFrame>
 

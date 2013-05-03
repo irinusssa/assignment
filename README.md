@@ -13,6 +13,13 @@ The application is based on **NanoHttpd**, a light-weight HTTP server. It extend
 
 This solution was chosen due to its simplicity, the fact that it is an open-source project, but also it contained most of the elements needed in this assignment and could be easily extended in order to provide the **thread pooling**. 
 
+Assignment B
+-------------------
+
+As a documentation for this functionality I've used *http://jqueryui.com/draggable/* and *http://api.jqueryui.com/draggable/*. Small "patches" were added to the code to solve some minor issues:
+- the `iFrame` coordinates weren't updated with the top and left offset of its position (I've used the correction suggested in *http://stackoverflow.com/questions/6817758/drag-and-drop-elements-into-an-iframe-droppable-area-has-wrong-coordinates-and*).
+- for other DOM elements than `div` I had to prevent the default handle for the **click** event.
+
 Execution
 -------------------
 
@@ -34,3 +41,5 @@ The allowed command line parameters are
 	-t	max threads number, defaults to 10
 	
 The test page *many.htm* is an exemple of concurrent requests, using `iframe`s.
+
+The test page *assignmentAdobeB.html* exemplifies the drag & drop feature for the DOM elements.
