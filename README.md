@@ -20,6 +20,8 @@ As a documentation for this functionality I've used *http://jqueryui.com/draggab
 - the `iFrame` coordinates weren't updated with the top and left offset of its position (I've used the correction suggested in *http://stackoverflow.com/questions/6817758/drag-and-drop-elements-into-an-iframe-droppable-area-has-wrong-coordinates-and*).
 - for other DOM elements than `div` I had to prevent the default handle for the **click** event.
 
+The second assignment does not require the web server to be running as the html files can be opened as static files in the browser, but in order to package the two assignments together, it is delivered in the *webapp* folder of the *web server*.
+
 Execution
 -------------------
 
