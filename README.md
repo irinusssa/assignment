@@ -16,7 +16,7 @@ The new version adds **HTTP/1.1 connection persistence** between the server and 
     finalAccept.setSoTimeout(10 * 1000);
 ```
 
-- the socket is closed automatically on timeout or if the *Connection* header is missing with the value *keep-alive* or if the *Connection* header is present with the value *close*.
+- the socket is closed automatically on timeout or if the *Connection* header with the value *keep-alive* is missing or if the *Connection* header with the value *close* is present **(all this oposed to the first version of the project, when it was closed after each request)**.
 
 ```java
 	System.out.println("Opened connection with client ...");
