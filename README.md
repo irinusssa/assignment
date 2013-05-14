@@ -4,6 +4,60 @@ My Adobe Assignment
 Assignment A
 -------------------
 
+Version 0.2
+-------------------
+
+The new version adds **HTTP/1.1 connection persistence** between the server and the clients. In order to continue using the base of the application `NanoHttpd` and also to be able to handle **keep-alive requests**, I had to modify the sources for `NanoHttpd`. The proper way to do this would have been branching the *github NanoHttpd repository*, but due to some difficulties that I encountered doing this and due to the close deadline, I decided to **copy** the modified sources inside my own project. Next I will go through the modifications that I did to the `NanoHttpd` class (and inner classes):
+- I added a default timeout of 10 seconds on the `Socket`.
+
+```java
+	final Socket finalAccept = myServerSocket.accept();
+    // set default timeout of 10 seconds
+    finalAccept.setSoTimeout(10 * 1000);
+```
+
+- the socket is closed automatically on timeout or if the *Connection* header is missing with the value *keep-alive* or if the *Connection* header is present with the value *close*.
+
+```java
+	System.out.println("Opened connection with client ...");
+	try {
+		if (!session.isConnectionKeepAlive()
+				|| session.isConnectionClose()) {
+			finalAccept.close();
+			System.out.println("\t... close connection.");
+		}
+	} catch (IOException ignored) {
+	}
+```
+
+- in case of a persistent connection, I added a timeout of 10 seconds to the `Response`, using the header *Keep-Alive: timeout=10* (this is reduntant if the socket has a 10 seconds timeout, but was added to cover some tests that I did without the socket timeout). The *Keep-Alive: timeout=10* header overrides the default setting of the clients (browsers) which are generally of about 1 minute.
+
+```java
+	if (isKeepAlive()) {
+		pw.print("Connection: keep-alive\r\n");
+		pw.print("Keep-Alive: timeout=10\r\n");
+	} else {
+		pw.print("Connection: close\r\n");
+	}
+```
+
+The functional tests were done using the **netstat** command line. Example:
+
+	...>netstat -a -p TCP
+		
+	Active Connections
+
+	  Proto  Local Address          Foreign Address        State
+	  ...
+	  TCP    127.0.0.1:8080         IRINA:0                LISTENING
+	  TCP    127.0.0.1:8080         IRINA:61603            ESTABLISHED
+	  ...
+
+The connection stays open until timeout.
+
+Version 0.1
+-------------------
+
 The application is based on **NanoHttpd**, a light-weight HTTP server. It extends the sample `SimpleWebServer` which in turn extends the abstract class `NanoHTTPD`.
 
 3 modifications were made to the original implementation in order to comply to the assignment:
