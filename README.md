@@ -1,4 +1,4 @@
-My Adobe Assignment
+My Assignment
 ==========
 
 Assignment A
